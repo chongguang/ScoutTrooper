@@ -17,21 +17,31 @@ exports.order = function products(req, res, next) {
   	sum += prices[i] * quantities[i];
   }
 
+
+
+
+  
+
+
+
   if(country === 'AT'){
-  	sum = sum * (1 + 0.22);
+  		sum = sum * (1 + 0.22);
 
 
 
 
 
-  if(reduction === 'STANDARD'){
-  	if(sum >=50000){
-  		sum = sum * (1-0.15)
-  	}
-  	res.send({'total':sum});
-  } else {
-  	res.sendStatus(200);
-  }
+	  if(reduction === 'STANDARD'){
+	  	if(sum >=50000){
+	  		sum = sum * (1-0.15);
+	  		res.send({'total':sum});
+	  	} else {
+	  		res.sendStatus(200);
+
+	  	}
+	  } else {
+	  	res.sendStatus(200);
+	  }
 
 
 
