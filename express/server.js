@@ -22,6 +22,18 @@ function Server (doLogRequests) {
   app.get('/test', function (req, res, next) {
     routes.tests(req, res, next);
   });
+  
+  app.post('/order', function (req, res, next) {
+    routes.order(req, res, next);
+  });
+  
+  app.post('/orderTest', function (req, res, next) {
+    routes.order(req, res, next);
+  });
+  
+  app.post('/feedback', function (req, res, next) {
+    routes.feedback(req, res, next);
+  });
 
 
   var server = http.createServer(app);
