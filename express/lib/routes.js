@@ -22,7 +22,14 @@ exports.order = function products(req, res, next) {
 
   sum = sum * (1 + vat(country)/100);
 
-  sum = sum * (1 - reductionCalculator(sum)/100);
+  if(reduction === 'STANDARD'){
+  	sum = sum * (1 - reductionCalculator(sum)/100);
+  } else {
+  	res.sendStatus(200);
+
+  }
+
+  
 
   res.send({'total':sum});
 }
