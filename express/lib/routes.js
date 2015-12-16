@@ -35,6 +35,7 @@ exports.feedback = function products(req, res, next) {
 
 
 
+///////TEST/////////////////////////////////////////////////////
 
 exports.orderTest = function products(req, res, next) {
   // FIXME ignored for now
@@ -50,47 +51,9 @@ exports.orderTest = function products(req, res, next) {
   	sum += prices[i] * quantities[i];
   }
 
-
-
-
-
-
-
   sum = sum * (1 + vat(country)/100);
 
+  sum = sum * (1 - reductionCalculator(sum)/100);
 
-
-  if(reduction === 'STANDARD'){
-  	if(sum >=50000){
-  		sum = sum * (1-0.15);
-  		res.send({'total':sum});
-  	} else if(sum >= 10000){
-  		sum = sum * (1-0.1);
-  		res.send({'total':sum});
-
-  	}else if(sum >= 7000){
-  		sum = sum * (1-0.07);
-  		res.send({'total':sum});
-
-  	}else if(sum >= 5000){
-  		sum = sum * (1-0.05);
-  		res.send({'total':sum});
-
-  	}else if(sum >= 1000){
-  		sum = sum * (1-0.03);
-  		res.send({'total':sum});
-
-  	} else {
-  		res.send({'total':sum});
-
-  	}
-  } else {
-  	res.sendStatus(200);
-  }
-
-
-
-
-
-  //res.sendStatus(200);
+  res.send({'total':sum});
 }
