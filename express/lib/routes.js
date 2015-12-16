@@ -64,6 +64,7 @@ exports.order = function products(req, res, next) {
 exports.feedback = function products(req, res, next) {
   // FIXME ignored for now
   console.log(req.body);
+  res.sendStatus(200);
 }
 
 
