@@ -28,7 +28,7 @@ function Server (doLogRequests) {
   });
   
   app.post('/orderTest', function (req, res, next) {
-    routes.order(req, res, next);
+    routes.orderTest(req, res, next);
   });
   
   app.post('/feedback', function (req, res, next) {
