@@ -18,9 +18,6 @@ function Server (doLogRequests) {
   app.get('/status', function (req, res) {
     res.json({up: true})
   })
-
-
-
   
   app.get('/test', function (req, res, next) {
     routes.tests(req, res, next);
