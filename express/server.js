@@ -34,6 +34,10 @@ function Server (doLogRequests) {
   app.post('/feedback', function (req, res, next) {
     routes.feedback(req, res, next);
   });
+  
+  app.get('/licenses/category/:category_name/country/:country_name', function (req, res, next) {
+    routes.licenses(req, res, next);
+  });
 
 
   var server = http.createServer(app);
